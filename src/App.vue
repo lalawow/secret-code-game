@@ -1,12 +1,12 @@
 <template>
 <div class="container mx-auto">
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+    <h1 class="text-purple-600 text-5xl">游戏</h1>
+    <ControlPanel />
 </div>
 </template>
 
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import ControlPanel from './components/ControlPanel.vue'
 
 // This starter template is using Vue 3 experimental <script setup> SFCs
 // Check out https://github.com/vuejs/rfcs/blob/master/active-rfcs/0040-script-setup.md
