@@ -1,8 +1,8 @@
 <template>
-<div class="container mx-auto">
-    <h1 class="text-purple-600 text-5xl">游戏</h1>
+  <div class="container mx-auto">
+    <h1 class="text-5xl text-purple-600">游戏</h1>
     <ControlPanel />
-</div>
+  </div>
 </template>
 
 <script setup>
