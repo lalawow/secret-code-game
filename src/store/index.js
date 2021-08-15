@@ -9,6 +9,7 @@ const store = {
     inGame: false,
     puzzle: new Array(5).fill(""),
     solutions: [],
+    currentSolution: new Array(5).fill(""),
   }),
 
   setMessageAction(newValue) {
@@ -41,6 +42,18 @@ const store = {
   },
   resetSolutions() {
     this.state.solutions = [];
+    this.state.currentSolution = ["", "", "", "", ""];
+    console.log("solutions", this.state.currentSolution);
+  },
+  resetCurrentSolution() {
+    const solution = this.state.currentSolution;
+    console.log(this.state.currentSolution);
+    solution.forEach((cell, index) => {
+      solution[index] = "";
+    });
+  },
+  fillSolution(position, value) {
+    this.state.currentSolution[position] = value;
   },
 };
 
