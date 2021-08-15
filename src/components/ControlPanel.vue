@@ -1,10 +1,12 @@
 <template>
     <div>
-        <n-button
-            type="primary"
-            @click="handleInGame"
-        >{{ state.inGame ? 'Stop Game' : 'Start Game' }}</n-button>
-        <n-button type="primary" @click="setValue()">Settings</n-button>
+        <div v-show="!state.inGame">
+            <n-button type="primary" @click="handleInGame">开始游戏</n-button>
+            <n-button type="primary" @click="setValue()">设置</n-button>
+        </div>
+        <div v-show="state.inGame">
+            <n-button type="error" @click="handleInGame">结束游戏</n-button>
+        </div>
     </div>
 </template>
 

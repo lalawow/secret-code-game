@@ -33,6 +33,8 @@ const store = {
 
   setPuzzle(newValue) {
     this.state.puzzle = newValue;
+    this.resetSolutions();
+    this.pushSolutions(newValue);
   },
   pushSolutions(newValue) {
     this.state.solutions.push(newValue);

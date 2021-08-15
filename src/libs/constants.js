@@ -6,7 +6,7 @@ export const colorProps = {
   YELLOW: "yellow-200",
   PURPLE: "purple-500",
   ORANGE: "yellow-500",
-  BLACK: "gray-500",
+  PINK: "pink-400",
 };
 
 export const colorList = {
@@ -17,7 +17,7 @@ export const colorList = {
   YELLOW: "YELLOW",
   PURPLE: "PURPLE",
   ORANGE: "ORANGE",
-  BLACK: "BLACK",
+  PINK: "PINK",
 };
 
 export const colorArray = Object.keys(colorProps);

@@ -10,6 +10,9 @@
     "vue": "^3.2.2"
   },
   "devDependencies": {
+    "@vicons/fa": "^0.11.0",
+    "@vicons/fluent": "^0.11.0",
+    "@vicons/utils": "^0.1.4",
     "@vitejs/plugin-vue": "^1.3.0",
     "@vue/compiler-sfc": "^3.2.2",
     "autoprefixer": "^10.3.1",
