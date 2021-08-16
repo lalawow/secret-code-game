@@ -6,3 +6,16 @@ export const genPuzzle = ({ colorSize, puzzleLength }) => {
   }
   return res;
 };
+
+export const genResult = (puzzle, solution) => {
+  const result = {
+    correct: 0,
+    close: 0,
+    wrong: 0,
+  };
+  const puzzleCount = {};
+  puzzle.forEach((c) => {
+    puzzleCount[c] = puzzleCount[c] ? puzzleCount[c] + 1 : 1;
+  });
+  return result;
+};

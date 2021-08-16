@@ -9,6 +9,7 @@ const store = {
     inGame: false,
     puzzle: new Array(5).fill(""),
     solutions: [],
+    results: [],
     currentSolution: new Array(5).fill(""),
   }),
 
@@ -38,7 +39,9 @@ const store = {
     this.pushSolutions(newValue);
   },
   pushSolutions(newValue) {
-    this.state.solutions.push(newValue);
+    this.state.solutions.push([...newValue]);
+    const result = genResult(this.state.puzzle, newValue);
+    this.state.results.push(result);
   },
   resetSolutions() {
     this.state.solutions = [];
