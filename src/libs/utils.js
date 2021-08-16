@@ -8,14 +8,29 @@ export const genPuzzle = ({ colorSize, puzzleLength }) => {
 };
 
 export const genResult = (puzzle, solution) => {
+  const _puzzle = [...puzzle];
+  const _solution = [...solution];
   const result = {
     correct: 0,
     close: 0,
     wrong: 0,
   };
-  const puzzleCount = {};
-  puzzle.forEach((c) => {
-    puzzleCount[c] = puzzleCount[c] ? puzzleCount[c] + 1 : 1;
+  solution.forEach((c, index) => {
+    if (c === puzzle[index]) {
+      result.correct = result.correct + 1;
+      _solution[index] = null;
+      _puzzle[index] = null;
+    }
   });
+  _solution.forEach((c) => {
+    if (c && _puzzle.indexOf(c) > -1) {
+      result.close = result.close + 1;
+      _puzzle[_puzzle.indexOf(c)] = null;
+    }
+  });
+  console.log("o", puzzle, solution);
+  console.log("l", _puzzle, _solution);
+  result.wrong = puzzle.length - result.correct - result.close;
+  console.log(result);
   return result;
 };

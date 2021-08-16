@@ -7,6 +7,7 @@
       v-bind:key="index"
     ></solution-line>
     <solution-line
+      v-if="state.inGame"
       :solution="[]"
       :index="state.solutions.length + 1"
       :isNew="true"

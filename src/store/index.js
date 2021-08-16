@@ -1,4 +1,6 @@
 import { reactive } from "vue";
+import { genResult } from "../libs/utils";
+
 const store = {
   debug: true,
 
@@ -36,12 +38,12 @@ const store = {
   setPuzzle(newValue) {
     this.state.puzzle = newValue;
     this.resetSolutions();
-    this.pushSolutions(newValue);
   },
   pushSolutions(newValue) {
     this.state.solutions.push([...newValue]);
     const result = genResult(this.state.puzzle, newValue);
     this.state.results.push(result);
+    if (result.correct === this.state.puzzleLength) this.setInGame(false);
   },
   resetSolutions() {
     this.state.solutions = [];

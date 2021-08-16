@@ -6,13 +6,16 @@
       <fill-solution v-else />
     </div>
     <div class="col-span-4 border-2 border-gray-300">
-      <n-button
-        text
-        v-if="isNew && allowSubmitSolution"
-        class="text-white"
-        @click="handleClick"
-        >提交答案</n-button
-      >
+      <div v-if="isNew">
+        <n-button
+          text
+          v-if="allowSubmitSolution"
+          class="text-white"
+          @click="handleClick"
+          >提交答案</n-button
+        >
+      </div>
+      <show-result v-else :solution="solution" />
     </div>
   </div>
 </template>
@@ -22,6 +25,7 @@ import { computed } from "vue";
 import { NButton } from "naive-ui";
 import ShowSolution from "./ShowSolution.vue";
 import FillSolution from "./FillSolution.vue";
+import ShowResult from "./ShowResult.vue";
 import store from "../../store";
 
 const { state } = store;
