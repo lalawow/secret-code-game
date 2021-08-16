@@ -28,9 +28,6 @@ export const genResult = (puzzle, solution) => {
       _puzzle[_puzzle.indexOf(c)] = null;
     }
   });
-  console.log("o", puzzle, solution);
-  console.log("l", _puzzle, _solution);
   result.wrong = puzzle.length - result.correct - result.close;
-  console.log(result);
   return result;
 };

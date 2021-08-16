@@ -11,15 +11,18 @@
     </div>
   </div>
   <div class="flex flex-wrap">
-    <div class="p-2 text-white">选项：</div>
+    <div class="text-white">选项：</div>
     <div
-      class="cursor-pointer hover:bg-gray-600"
+      class="p-2 cursor-pointer hover:bg-gray-600"
       v-for="(cell, index) in colorArray"
       :color="cell"
       v-bind:key="index"
       @click="handleChangeValue(cell)"
     >
-      <display-puzzle-cell :color="cell"></display-puzzle-cell>
+      <display-puzzle-cell
+        v-if="index < state.colorSize"
+        :color="cell"
+      ></display-puzzle-cell>
     </div>
   </div>
 </template>
@@ -32,14 +35,12 @@ import { colorArray } from "../../libs/constants.js";
 const { state } = store;
 
 const position = ref(0);
-console.log(position.value);
+
 const handleChangePosition = (p) => {
   position.value = p;
-  console.log(position.value);
 };
 
 const handleChangeValue = (color) => {
-  console.log("position type", typeof position.value);
   store.fillSolution(position.value, color);
 };
 

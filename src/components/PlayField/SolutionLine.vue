@@ -38,12 +38,9 @@ const props = defineProps({
 
 const allowSubmitSolution = computed(() => {
   let res = true;
-  console.log("compute", state.currentSolution, state.currentSolution.length);
   state.currentSolution.forEach((c) => {
-    console.log("el", c);
     if (!c) res = false;
   });
-  console.log("res", res);
   return res;
 });
 

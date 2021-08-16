@@ -13,6 +13,4 @@ import store from "../store";
 import DisplayPuzzleCell from "./DisplayPuzzleCell.vue";
 
 const { state } = store;
-
-console.log(state.puzzle);
 </script>

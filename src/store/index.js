@@ -1,18 +1,22 @@
 import { reactive } from "vue";
+import { PUZZLE_LENGTH, COLOR_SIZE } from "../config";
 import { genResult } from "../libs/utils";
+
+// const { PUZZLE_LENGTH, COLOR_SIZE } = CONFIG;
 
 const store = {
   debug: true,
 
   state: reactive({
     message: "Hello!",
-    colorSize: 8,
-    puzzleLength: 5,
+    colorSize: COLOR_SIZE,
+    puzzleLength: PUZZLE_LENGTH,
     inGame: false,
-    puzzle: new Array(5).fill(""),
+    puzzle: new Array(PUZZLE_LENGTH).fill(""),
     solutions: [],
     results: [],
-    currentSolution: new Array(5).fill(""),
+    currentSolution: new Array(PUZZLE_LENGTH).fill(""),
+    youWin: false,
   }),
 
   setMessageAction(newValue) {
@@ -33,6 +37,7 @@ const store = {
 
   setInGame(newValue) {
     this.state.inGame = newValue;
+    if (newValue) this.state.youWin = false;
   },
 
   setPuzzle(newValue) {
@@ -43,16 +48,17 @@ const store = {
     this.state.solutions.push([...newValue]);
     const result = genResult(this.state.puzzle, newValue);
     this.state.results.push(result);
-    if (result.correct === this.state.puzzleLength) this.setInGame(false);
+    if (result.correct === this.state.puzzleLength) {
+      this.state.youWin = true;
+      this.setInGame(false);
+    }
   },
   resetSolutions() {
     this.state.solutions = [];
-    this.state.currentSolution = ["", "", "", "", ""];
-    console.log("solutions", this.state.currentSolution);
+    this.state.currentSolution = new Array(this.state.puzzleLength).fill("");
   },
   resetCurrentSolution() {
     const solution = this.state.currentSolution;
-    console.log(this.state.currentSolution);
     solution.forEach((cell, index) => {
       solution[index] = "";
     });
