@@ -5,7 +5,32 @@
         <n-button type="primary" @click="handleInGame">开始游戏</n-button>
       </div>
       <div class="p-2">
-        <n-button type="primary" @click="setValue()">设置</n-button>
+        <n-button type="primary" @click="showModal = true">设置</n-button>
+        <n-modal v-model:show="showModal" preset="dialog" title="Dialog">
+          <template #header>
+            <div>游戏设置</div>
+          </template>
+          <div>
+            <n-form
+              ref="formRef"
+              label-placement="left"
+              :label-width="160"
+              :style="{
+                maxWidth: '640px',
+              }"
+            >
+              <n-form-item label="密码长度">
+                <n-slider :default-value="3" :step="1" :min="1" :max="8" />
+              </n-form-item>
+              <n-form-item label="颜色数量">
+                <n-slider :default-value="5" :step="1" :min="1" :max="8" />
+              </n-form-item>
+            </n-form>
+          </div>
+          <template #action>
+            <n-button type="primary" @click="showModal = false">关闭</n-button>
+          </template>
+        </n-modal>
       </div>
     </div>
     <div v-show="state.inGame">
@@ -17,12 +42,14 @@
 </template>
 
 <script setup>
-import { NButton } from "naive-ui";
+import { ref } from "vue";
+import { NButton, NModal, NForm, NFormItem, NSlider } from "naive-ui";
 import store from "../store";
 import { genPuzzle } from "../libs/utils";
 
 const { state } = store;
 
+const showModal = ref(false);
 const handleInGame = () => {
   if (!state.inGame) {
     const { colorSize, puzzleLength } = state;
