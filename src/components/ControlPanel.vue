@@ -1,11 +1,17 @@
 <template>
   <div>
-    <div v-show="!state.inGame">
-      <n-button type="primary" @click="handleInGame">开始游戏</n-button>
-      <n-button type="primary" @click="setValue()">设置</n-button>
+    <div v-show="!state.inGame" class="flex justify-center">
+      <div class="p-2">
+        <n-button type="primary" @click="handleInGame">开始游戏</n-button>
+      </div>
+      <div class="p-2">
+        <n-button type="primary" @click="setValue()">设置</n-button>
+      </div>
     </div>
     <div v-show="state.inGame">
-      <n-button type="error" @click="handleInGame">结束游戏</n-button>
+      <div class="p-2">
+        <n-button type="error" @click="handleInGame">结束游戏</n-button>
+      </div>
     </div>
   </div>
 </template>

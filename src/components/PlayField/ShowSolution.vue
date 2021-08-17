@@ -9,7 +9,6 @@
 </template>
 
 <script setup>
-import { defineProps } from "vue";
 import DisplayPuzzleCell from "../DisplayPuzzleCell.vue";
 
 const props = defineProps({

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="p-2">
     <div v-if="state.youWin" class="text-5xl text-center text-yellow-400">
       牛啊，被你猜到了！
     </div>
