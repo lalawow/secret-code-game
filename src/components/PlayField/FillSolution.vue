@@ -10,25 +10,31 @@
       <display-puzzle-cell :color="cell"></display-puzzle-cell>
     </div>
   </div>
-  <div class="flex flex-wrap">
+  <div class="flex flex-wrap items-center">
     <div class="text-white">选项：</div>
     <div
-      class="p-2 cursor-pointer hover:bg-gray-600"
+      class="cursor-pointer hover:bg-gray-600"
       v-for="(cell, index) in colorArray"
       :color="cell"
       v-bind:key="index"
       @click="handleChangeValue(cell)"
     >
-      <display-puzzle-cell
-        v-if="index < state.colorSize"
-        :color="cell"
-      ></display-puzzle-cell>
+      <display-puzzle-cell v-if="index < state.colorSize" :color="cell"></display-puzzle-cell>
+    </div>
+    <div>
+      <n-button
+        text
+        :disabled="!allowSubmitSolution"
+        class="text-white"
+        @click="handleSubmitSolution"
+      >提交答案</n-button>
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref, computed } from "vue";
+import { NButton } from 'naive-ui'
 import DisplayPuzzleCell from "../DisplayPuzzleCell.vue";
 import store from "../../store";
 import { colorArray } from "../../libs/constants.js";
@@ -49,9 +55,23 @@ const cellBorder = computed(() => {
     "border-2 border-transparent cursor-pointer hover:bg-gray-600"
   );
   res[position.value] =
-    "border-2 border-dashed border-gray-300 cursor-pointer hover:bg-gray-600";
+    "border-2 border-dashed border-gray-300 cursor-pointer hover:bg-gray-600 rounded-md";
   return res;
 });
+
+const allowSubmitSolution = computed(() => {
+  let res = true;
+  state.currentSolution.forEach((c) => {
+    if (!c) res = false;
+  });
+  return res;
+});
+
+const handleSubmitSolution = () => {
+  store.pushSolutions(state.currentSolution);
+  store.resetCurrentSolution();
+};
 </script>
 
-<style></style>
+<style>
+</style>

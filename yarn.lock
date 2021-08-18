@@ -1324,6 +1324,11 @@
   dependencies:
     "@types/yargs-parser" "*"
 
+"@vicons/carbon@^0.11.0":
+  version "0.11.0"
+  resolved "https://registry.npmjs.org/@vicons/carbon/-/carbon-0.11.0.tgz#510e01e883a73b1d4343a3eb1d10141446463abe"
+  integrity sha512-+Wkl8wOP1GR7jS+OKcsJ58NnZr4i+BZhbpLRtgpZQui1zFpYjoWinwvYKLjGKJ/oiR10Q237cBDjGwmMSzXqTg==
+
 "@vicons/fa@^0.11.0":
   version "0.11.0"
   resolved "https://registry.npmjs.org/@vicons/fa/-/fa-0.11.0.tgz#dc6780b25b7943734e7c75d74df2f4443b0572ae"

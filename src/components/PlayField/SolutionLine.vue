@@ -1,22 +1,23 @@
 <template>
   <div class="grid grid-cols-12 gap-4 text-white">
-    <div class="col-span-2 border-2 border-gray-300">{{ index }}</div>
-    <div class="col-span-6 border-2 border-gray-300">
+    <div class="col-span-2" />
+    <div class="col-span-2 p-3 text-base">{{ index }}</div>
+    <div class="col-span-6">
       <show-solution v-if="!isNew" :solution="solution" />
       <fill-solution v-else />
+      <!-- <div v-if="isNew">
+        <n-button text v-if="allowSubmitSolution" class="text-white" @click="handleClick">提交答案</n-button>
+      </div>-->
+      <show-result v-if="!isNew" :solution="solution" />
     </div>
-    <div class="col-span-4 border-2 border-gray-300">
+    <div class="col-span-2" />
+    <!-- <div class="col-span-4" />
+    <div class="col-span-4">
       <div v-if="isNew">
-        <n-button
-          text
-          v-if="allowSubmitSolution"
-          class="text-white"
-          @click="handleClick"
-          >提交答案</n-button
-        >
+        <n-button text v-if="allowSubmitSolution" class="text-white" @click="handleClick">提交答案</n-button>
       </div>
       <show-result v-else :solution="solution" />
-    </div>
+    </div>-->
   </div>
 </template>
 

@@ -4,6 +4,7 @@
       v-for="(cell, index) in solution"
       :color="cell"
       v-bind:key="index"
+      class="border-2 border-transparent"
     />
   </div>
 </template>
@@ -16,4 +17,5 @@ const props = defineProps({
 });
 </script>
 
-<style></style>
+<style>
+</style>
