@@ -20,10 +20,22 @@
               }"
             >
               <n-form-item label="密码长度">
-                <n-slider :default-value="3" :step="1" :min="1" :max="8" />
+                <n-slider
+                  :defaultValue="state.puzzleLength"
+                  :step="1"
+                  :min="1"
+                  :max="8"
+                  :on-update:value="setPuzzleLength"
+                />
               </n-form-item>
               <n-form-item label="颜色数量">
-                <n-slider :default-value="5" :step="1" :min="1" :max="8" />
+                <n-slider
+                  :defaultValue="state.colorSize"
+                  :step="1"
+                  :min="1"
+                  :max="8"
+                  :on-update:value="setColorSize"
+                />
               </n-form-item>
             </n-form>
           </div>
@@ -57,5 +69,13 @@ const handleInGame = () => {
     store.setPuzzle(newPuzzle);
   }
   store.setInGame(!state.inGame);
+};
+
+const setPuzzleLength = (value) => {
+  state.puzzleLength = value;
+};
+
+const setColorSize = (value) => {
+  state.colorSize = value;
 };
 </script>

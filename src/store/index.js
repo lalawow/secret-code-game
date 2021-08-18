@@ -66,6 +66,10 @@ const store = {
   fillSolution(position, value) {
     this.state.currentSolution[position] = value;
   },
+  setStateValue(value) {
+    this.state = { ...this.state, ...value };
+    console.log(this.state);
+  },
 };
 
 export default store;
