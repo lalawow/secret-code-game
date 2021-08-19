@@ -17,6 +17,8 @@ const store = {
     results: [],
     currentSolution: new Array(PUZZLE_LENGTH).fill(""),
     youWin: false,
+    startAt: null,
+    endAt: null,
   }),
 
   setMessageAction(newValue) {
@@ -50,6 +52,7 @@ const store = {
     this.state.results.push(result);
     if (result.correct === this.state.puzzleLength) {
       this.state.youWin = true;
+      this.state.endAt = Date.now();
       this.setInGame(false);
     }
   },

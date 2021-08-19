@@ -67,6 +67,7 @@ const handleInGame = () => {
     const { colorSize, puzzleLength } = state;
     const newPuzzle = genPuzzle({ colorSize, puzzleLength });
     store.setPuzzle(newPuzzle);
+    state.startAt = Date.now();
   }
   store.setInGame(!state.inGame);
 };
