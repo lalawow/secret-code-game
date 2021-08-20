@@ -1,7 +1,7 @@
 <template>
   <div class="container h-auto mx-auto">
     <div class="relative">
-      <h1 class="p-2 text-5xl text-purple-600">游戏</h1>
+      <h1 class="p-2 text-5xl text-purple-600">猜密码</h1>
       <game-intro class="absolute top-2 right-2" />
       <game-setting class="absolute top-2 left-2" />
       <control-panel />
