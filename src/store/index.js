@@ -7,8 +7,8 @@ const store = {
 
   state: reactive({
     message: "Hello!",
-    colorSize: getLocalItem("COLOR_SIZE") || COLOR_SIZE,
-    puzzleLength: getLocalItem("PUZZLE_LENGTH") || PUZZLE_LENGTH,
+    colorSize: parseInt(getLocalItem("COLOR_SIZE")) || COLOR_SIZE,
+    puzzleLength: parseInt(getLocalItem("PUZZLE_LENGTH")) || PUZZLE_LENGTH,
     inGame: false,
     puzzle: new Array(PUZZLE_LENGTH).fill(""),
     solutions: [],
