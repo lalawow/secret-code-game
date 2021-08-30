@@ -1,4 +1,10 @@
 import { colorArray } from "./constants";
+
+export const getLocalItem = (key) => localStorage.getItem(key);
+
+export const setLocalItem = (key, value) =>
+  localStorage.setItem(key, JSON.stringify(value));
+
 export const genPuzzle = ({ colorSize, puzzleLength }) => {
   const res = [];
   for (let i = 0; i < puzzleLength; i++) {

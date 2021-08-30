@@ -57,7 +57,7 @@
 import { ref } from "vue";
 import { NButton, NModal, NForm, NFormItem, NSlider } from "naive-ui";
 import store from "../store";
-import { genPuzzle } from "../libs/utils";
+import { genPuzzle, setLocalItem } from "../libs/utils";
 
 const { state } = store;
 
@@ -74,9 +74,11 @@ const handleInGame = () => {
 
 const setPuzzleLength = (value) => {
   state.puzzleLength = value;
+  setLocalItem('PUZZLE_LENGTH', value)
 };
 
 const setColorSize = (value) => {
   state.colorSize = value;
+  setLocalItem('COLOR_SIZE', value)
 };
 </script>

@@ -1,16 +1,14 @@
 import { reactive } from "vue";
 import { PUZZLE_LENGTH, COLOR_SIZE } from "../config";
-import { genResult } from "../libs/utils";
-
-// const { PUZZLE_LENGTH, COLOR_SIZE } = CONFIG;
+import { genResult, getLocalItem } from "../libs/utils";
 
 const store = {
   debug: true,
 
   state: reactive({
     message: "Hello!",
-    colorSize: COLOR_SIZE,
-    puzzleLength: PUZZLE_LENGTH,
+    colorSize: getLocalItem("COLOR_SIZE") || COLOR_SIZE,
+    puzzleLength: getLocalItem("PUZZLE_LENGTH") || PUZZLE_LENGTH,
     inGame: false,
     puzzle: new Array(PUZZLE_LENGTH).fill(""),
     solutions: [],
